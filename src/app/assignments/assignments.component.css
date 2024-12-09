@@ -1,0 +1,77 @@
+.rendu{
+    color: green;
+}
+.nonRendu{
+    color: red;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
+}
+/* change .form*/
+.mat-sidenav-container {
+    height: calc(205vh - 115vh);
+   
+}
+
+mat-sidenav{
+    width: 200px;
+    background-color: white;
+}
+
+/* Add a pointer cursor to indicate the item is clickable */
+mat-list-item {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 80px; /* Increase the minimum height */
+    padding: 10px; /* Add padding */
+  }
+  
+  /* Add a hover effect to highlight the item */
+  mat-list-item:hover {
+    background-color: #f0f0f0; /* Light grey background on hover */
+  }
+  
+  /* Highlight the selected assignment */
+  mat-list-item.selected {
+    background-color: #d0e0ff; /* Light blue background for selected item */
+    border-left: 4px solid #3f51b5; /* Blue border on the left */
+  }
+  
+  /* Add a green background for completed assignments */
+  mat-list-item.rendu {
+    background-color: #e0ffe0; /* Light green background for completed item */
+  }
+  
+  /* Ensure proper spacing for the content and delete button */
+  .assignment-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .assignment-content {
+    flex-grow: 1;
+    padding-right: 16px; /* Add padding to ensure space for the delete button */
+  }
+  
+  /* Additional styles */
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .ajouterBtn {
+    align-self: flex-end;
+  }
+
+  
+
+
+  

@@ -1,0 +1,54 @@
+/* Ensure the sidenav takes the full height of the container */
+mat-sidenav-container, mat-sidenav, mat-sidenav-content {
+    height: 100%;
+  }
+  
+  /* Hide the scrollbar */
+  mat-sidenav {
+    overflow: hidden;
+  }
+  
+  /* Ensure the list items fit within the sidenav */
+  mat-list {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Ensure the list items are properly spaced */
+  mat-list-item {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Remove text decoration from links */
+  a {
+    text-decoration: none;
+  }
+  
+  /* Spacer to push the login button to the right */
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  .sidenav-container {
+    height: 100%;
+  }
+  
+  .mat-toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+  }
+  
+  .mat-sidenav-container {
+    padding-top: 64px; /* Adjust this value if your toolbar height is different */
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  

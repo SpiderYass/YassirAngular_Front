@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>{{ title }}</span>
+  <span class="spacer"></span>
+  <button mat-button routerLink="/login">Connecter</button>
+  <button mat-button (click)="peuplerBD()">Peupler BD</button> <!-- Add this button -->
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" opened>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/home" routerLinkActive="active-link">Home</a>
+      <a mat-list-item routerLink="/add" routerLinkActive="active-link">Add Assignment</a>
+      <a mat-list-item routerLink="/another" routerLinkActive="active-link">Another Component</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,39 @@
+<main class="container">
+  <div class="ajouterBtn" *ngIf="isAdmin()">
+  </div>
+
+  <mat-list *ngFor="let assignment of assignments">
+    <mat-list-item (click)="assignmentClique(assignment)" [class.rendu]="assignment.rendu" class="assignment-item">
+      <div class="assignment-content">
+        <p appRendu *ngIf="assignment.rendu; else nonsoumis">
+          Devoir intitulé {{ assignment.nom }} rendu le {{ assignment.dateDeRendu | date : 'dd/MM/YY' }} par l'étudiant
+        </p>
+        <ng-template #nonsoumis>
+          Le devoir intitulé {{ assignment.nom }} n'a pas encore été rendu.
+        </ng-template>
+      </div>
+      <button mat-icon-button color="primary" (click)="editAssignment(assignment)" [disabled]="!isAdmin()">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="deleteAssignment(assignment)" [disabled]="!isAdmin()">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+    <div *ngIf="assignmentSelectionne === assignment">
+      <app-assignment-detail [assignment]="assignment"></app-assignment-detail>
+    </div>
+  </mat-list>
+
+  <p *ngIf="assignmentSelectionne">Sélectionné: {{ assignmentSelectionne.nom }}</p>
+
+  <div class="pagination-controls">
+    <button mat-button (click)="goToFirstPage()" [disabled]="page === 1">Première page</button>
+    <button mat-button (click)="goToPreviousPage()" [disabled]="!hasPrevPage">Page précédente</button>
+    <span>Page {{ page }} sur {{ totalPages }}</span>
+    <button mat-button (click)="goToNextPage()" [disabled]="!hasNextPage">Page suivante</button>
+    <button mat-button (click)="goToLastPage()" [disabled]="page === totalPages">Dernière page</button>
+  </div>
+
+  <p>Total de documents: {{ totalDocs }}</p>
+</main>

@@ -1,0 +1,17 @@
+<mat-card *ngIf="assignment">
+  <mat-card-header>
+    <mat-card-title>{{ assignment.nom }}</mat-card-title>
+    <mat-card-subtitle>ID: {{ assignment.id }} | Date de rendu: {{ assignment.dateDeRendu | date: 'dd/MM/yyyy' }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Status: {{ assignment.rendu ? 'Rendu' : 'Non rendu' }}</p>
+    <mat-checkbox [(ngModel)]="assignment.rendu" (change)="onAssignmentRendu()">
+      Marquer comme rendu
+    </mat-checkbox>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-icon-button color="warn" (click)="onDelete()" [disabled]="!isAdmin()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
